@@ -3,7 +3,7 @@
 <!-- badges: start -->
 [![CI](https://github.com/pablosancheznunez/neuroconsumer/actions/workflows/ci.yml/badge.svg)](https://github.com/pablosancheznunez/neuroconsumer/actions/workflows/ci.yml)
 [![Website](https://img.shields.io/badge/docs-pkgdown-24407a)](https://pablosancheznunez.com/neuroconsumer/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pablosancheznunez/neuroconsumer/blob/main/LICENSE.md)
 <!-- badges: end -->
 
 **Controlled visual experimentation in consumer research.**
@@ -78,11 +78,11 @@ See the [gallery article](https://pablosancheznunez.com/neuroconsumer/articles/s
 
 ## Citation
 
-If you use neuroconsumer in your research, please cite it; `citation("neuroconsumer")` gives the reference, and [CITATION.cff](CITATION.cff) is read by GitHub's "Cite this repository" button.
+If you use neuroconsumer in your research, please cite it; `citation("neuroconsumer")` gives the reference, and [CITATION.cff](https://github.com/pablosancheznunez/neuroconsumer/blob/main/CITATION.cff) is read by GitHub's "Cite this repository" button.
 
 ## Contributing
 
-Bug reports and suggestions are welcome in the [issues](https://github.com/pablosancheznunez/neuroconsumer/issues). See [CONTRIBUTING.md](CONTRIBUTING.md).
+Bug reports and suggestions are welcome in the [issues](https://github.com/pablosancheznunez/neuroconsumer/issues). See the [contributing guide](https://github.com/pablosancheznunez/neuroconsumer/blob/main/CONTRIBUTING.md).
 
 ## License
 

@@ -6,7 +6,9 @@
 \alias{neuroconsumer-package}
 \title{neuroconsumer: Controlled Visual Experimentation in Consumer Research}
 \description{
-An experimental toolkit for constructing, manipulating, validating, and documenting visual stimuli in consumer research and advertising studies. Provides declarative specification of experimental factors, deterministic rendering of vector stimuli (SVG/PNG), automatic generation of Areas of Interest (AOIs) with persistent identifiers, and verification of experimental invariants to guarantee that conditions differ only in declared dimensions.
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
+An experimental toolkit for constructing, manipulating, validating, and documenting visual stimuli in consumer research and advertising studies. Provides declarative specification of experimental factors, deterministic rendering of vector stimuli (SVG/PNG), automatic generation of areas of interest for eye tracking with persistent identifiers, and checks that experimental conditions differ only in the declared dimensions.
 }
 \seealso{
 Useful links:

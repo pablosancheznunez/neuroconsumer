@@ -1,6 +1,10 @@
-## Submission
+## Resubmission
 
-First submission of neuroconsumer.
+This is a resubmission of a new package. The automatic pre-tests of the first submission reported:
+
+* Two WARNINGs because the vignette had not been built into the tarball. The tarball is now built with the vignette (`inst/doc` is present).
+* A NOTE for the package website URL, which was not yet online. It is now live: <https://pablosancheznunez.com/neuroconsumer/>.
+* Possibly misspelled words in DESCRIPTION ("AOIs", "invariants"). The sentence has been reworded without them.
 
 ## Test environments
 

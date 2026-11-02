@@ -7,9 +7,9 @@ Authors@R:
 Description: An experimental toolkit for constructing, manipulating, validating,
     and documenting visual stimuli in consumer research and advertising studies.
     Provides declarative specification of experimental factors, deterministic
-    rendering of vector stimuli (SVG/PNG), automatic generation of Areas of
-    Interest (AOIs) with persistent identifiers, and verification of experimental
-    invariants to guarantee that conditions differ only in declared dimensions.
+    rendering of vector stimuli (SVG/PNG), automatic generation of areas of
+    interest for eye tracking with persistent identifiers, and checks that
+    experimental conditions differ only in the declared dimensions.
 License: MIT + file LICENSE
 URL: https://pablosancheznunez.com/neuroconsumer/,
     https://github.com/pablosancheznunez/neuroconsumer
