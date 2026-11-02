@@ -1,0 +1,53 @@
+---
+title: "Designing a 2x2 Factorial Visual Experiment"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Designing a 2x2 Factorial Visual Experiment}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(neuroconsumer)
+```
+
+## Introduction
+
+This vignette demonstrates how to programmatically design, manipulate, and validate a controlled 2x2 visual experiment using `neuroconsumer`.
+
+### 1. Build Reference Stimulus
+
+```r
+bg <- nc_component("bg", type = "background", width = 1, height = 1, properties = list(fill = "#F8FAFC"))
+brand <- nc_component("brand", type = "brand", x = 0.5, y = 0.1, properties = list(text = "LUMINA"))
+headline <- nc_component("headline", type = "headline", x = 0.5, y = 0.22, properties = list(text = "Clarity Redefined"))
+product <- nc_component("product", type = "product", x = 0.5, y = 0.45, width = 0.4, height = 0.3)
+price <- nc_component("price", type = "price", x = 0.5, y = 0.65, properties = list(text = "$149.00"))
+cta <- nc_component("cta", type = "cta", x = 0.5, y = 0.82, properties = list(text = "Order Now", fill = "#94A3B8"))
+
+stim <- nc_stimulus("ref_ad", list(bg, brand, headline, product, price, cta))
+exp <- nc_experiment("ad_study", reference = stim)
+```
+
+### 2. Declare Manipulations
+
+```r
+exp <- nc_manipulate(exp, factor = "price_pos", component = "price",
+                     parameter = "y", levels = c(upper = 0.60, lower = 0.72))
+exp <- nc_manipulate(exp, factor = "cta_contrast", component = "cta",
+                     parameter = "properties.fill", levels = c(low = "#94A3B8", high = "#E11D48"))
+```
+
+### 3. Verify Experimental Invariants
+
+```r
+rep <- nc_validate(exp)
+print(rep)
+```

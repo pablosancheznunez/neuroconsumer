@@ -1,0 +1,14 @@
+# .gitignore for neuroconsumer R package
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+*.tar.gz
+*.Rcheck/
+inst/doc
+src/*.o
+src/*.so
+src/*.dll
+.DS_Store
+Thumbs.db

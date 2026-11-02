@@ -1,0 +1,35 @@
+Package: neuroconsumer
+Title: Controlled Visual Experimentation in Consumer Research
+Version: 0.1.0
+Authors@R: 
+    person("Pablo", "Sánchez-Núñez", email = "psancheznunez@outlook.com",
+           role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0001-7845-9506"))
+Description: An experimental toolkit for constructing, manipulating, validating,
+    and documenting visual stimuli in consumer research and advertising studies.
+    Provides declarative specification of experimental factors, deterministic
+    rendering of vector stimuli (SVG/PNG), automatic generation of Areas of
+    Interest (AOIs) with persistent identifiers, and verification of experimental
+    invariants to guarantee that conditions differ only in declared dimensions.
+License: MIT + file LICENSE
+URL: https://pablosancheznunez.com/neuroconsumer/,
+    https://github.com/pablosancheznunez/neuroconsumer
+BugReports: https://github.com/pablosancheznunez/neuroconsumer/issues
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    grDevices,
+    graphics,
+    stats,
+    utils
+Suggests: 
+    knitr,
+    rmarkdown,
+    rsvg,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-GB
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.1
