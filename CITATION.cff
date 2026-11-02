@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use neuroconsumer, please cite it as below."
+type: software
+title: "neuroconsumer: Controlled Visual Experimentation in Consumer Research"
+version: 0.1.0
+date-released: 2026-11-02
+authors:
+  - family-names: "Sánchez-Núñez"
+    given-names: "Pablo"
+    orcid: "https://orcid.org/0000-0001-7845-9506"
+url: "https://pablosancheznunez.com/neuroconsumer/"
+repository-code: "https://github.com/pablosancheznunez/neuroconsumer"
+license: MIT
+keywords:
+  - consumer research
+  - advertising research
+  - visual stimuli
+  - experimental design
+  - eye tracking
+  - areas of interest
+  - neuromarketing
+  - R
+abstract: >-
+  An R package for constructing, manipulating, validating and documenting
+  visual stimuli in consumer research and advertising studies: declarative
+  experimental factors, deterministic SVG/PNG rendering, Areas of Interest
+  with persistent identifiers, and verification that conditions differ only
+  in the declared dimensions.

@@ -1,0 +1,63 @@
+url: https://pablosancheznunez.com/neuroconsumer/
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#24407a"
+  opengraph:
+    image:
+      src: man/figures/card.png
+      alt: "neuroconsumer: controlled visual experimentation in consumer research"
+
+authors:
+  Pablo Sánchez-Núñez:
+    href: https://pablosancheznunez.com
+
+home:
+  links:
+  - text: Example stimulus pack
+    href: https://pablosancheznunez.com/neuroconsumer/example/
+  - text: Author website
+    href: https://pablosancheznunez.com
+
+navbar:
+  structure:
+    left: [intro, articles, reference, news]
+    right: [search, github]
+
+articles:
+- title: Get started
+  navbar: ~
+  contents:
+  - visual-experimentation
+  - articles/stimulus-gallery
+
+reference:
+- title: Build stimuli
+  desc: Compose a stimulus from named components in normalised coordinates.
+  contents:
+  - nc_component
+  - nc_stimulus
+  - nc_add_component
+- title: Design the experiment
+  desc: Declare factors and levels; every condition is generated from the reference.
+  contents:
+  - nc_experiment
+  - nc_manipulate
+  - nc_build_variants
+  - nc_design
+- title: Verify
+  desc: Confirm that conditions differ only in the declared dimensions.
+  contents:
+  - nc_validate
+- title: Areas of Interest
+  desc: AOIs bound to components, with stable identifiers across conditions.
+  contents:
+  - nc_aoi
+  - nc_aoi_from_components
+  - nc_aoi_to_df
+- title: Export
+  desc: Deterministic SVG and PNG output.
+  contents:
+  - nc_render_svg
+  - nc_export

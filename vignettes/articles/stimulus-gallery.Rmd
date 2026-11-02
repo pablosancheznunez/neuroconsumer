@@ -1,0 +1,107 @@
+---
+title: "Gallery: a 2 x 2 display-ad experiment"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+This article builds a complete experiment and shows what neuroconsumer produces: the factorial design, the four rendered stimuli with their Areas of Interest (AOIs), and the invariant check that confirms the conditions differ only where the design says they should. The same experiment is available as a [downloadable stimulus pack](https://pablosancheznunez.com/neuroconsumer/example/) (SVG, PNG, design and AOI tables).
+
+## 1. A reference stimulus
+
+A stimulus is a set of named components placed in normalised coordinates (0 to 1), so the same design renders identically at any canvas size.
+
+```{r reference}
+library(neuroconsumer)
+
+bg <- nc_component("bg", type = "background", width = 1, height = 1,
+                   properties = list(fill = "#F8FAFC"))
+brand <- nc_component("brand", type = "brand", x = 0.5, y = 0.1, width = 0.3, height = 0.08,
+                      properties = list(text = "LUMINA", color = "#1E293B", font_size = 44,
+                                        font_weight = "bold", font_family = "Georgia, serif"))
+product <- nc_component("product", type = "product", x = 0.5, y = 0.38, width = 0.4, height = 0.34,
+                        properties = list(fill = "#CBD5E1", border_radius = 18,
+                                          text = "product image", color = "#475569"))
+price <- nc_component("price", type = "price", x = 0.5, y = 0.65, width = 0.24, height = 0.08,
+                      properties = list(text = "$149.00", color = "#0F172A", font_size = 40,
+                                        font_weight = "bold"))
+cta <- nc_component("cta", type = "cta", x = 0.5, y = 0.84, width = 0.28, height = 0.1,
+                    properties = list(text = "Buy now", fill = "#94A3B8", color = "#FFFFFF",
+                                      border_radius = 12, font_size = 34))
+
+reference <- nc_stimulus("ad_reference", list(bg, brand, product, price, cta))
+reference
+```
+
+## 2. Declared manipulations
+
+Two factors with two levels each. Nothing else is allowed to change.
+
+```{r manipulations}
+exp <- nc_experiment("display_ad_study", title = "Price position x CTA contrast",
+                     reference = reference)
+exp <- nc_manipulate(exp, factor = "price_pos", component = "price",
+                     parameter = "y", levels = c(upper = 0.60, lower = 0.72))
+exp <- nc_manipulate(exp, factor = "cta_contrast", component = "cta",
+                     parameter = "properties.fill", levels = c(low = "#94A3B8", high = "#E11D48"))
+nc_design(exp)
+```
+
+## 3. The four conditions, with their AOIs
+
+Each AOI is bound to a component and keeps the same identifier in every condition, so gaze data from different conditions can be compared region by region. The dashed rectangles are drawn here for illustration only; exported stimuli do not contain them.
+
+```{r gallery-helper, include = FALSE}
+svg_with_aois <- function(stimulus) {
+  svg <- nc_render_svg(stimulus)
+  svg <- sub("^<\\?xml[^>]*>\\s*", "", svg)
+  aois <- nc_aoi_to_df(nc_aoi_from_components(stimulus),
+                       stimulus$canvas$width, stimulus$canvas$height)
+  boxes <- sprintf(paste0(
+    '<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="none" stroke="#E4572E" ',
+    'stroke-width="4" stroke-dasharray="14 8"/>',
+    '<text x="%.1f" y="%.1f" fill="#E4572E" font-family="sans-serif" font-size="22">%s</text>'),
+    aois$px_xmin, aois$px_ymin, aois$px_width, aois$px_height,
+    aois$px_xmin + 6, aois$px_ymin - 8, aois$id)
+  svg <- sub("<svg ", '<svg style="width:100%;height:auto" role="img" ', svg, fixed = TRUE)
+  sub("</svg>", paste(c(boxes, "</svg>"), collapse = ""), svg, fixed = TRUE)
+}
+```
+
+```{r gallery, echo = FALSE, results = "asis"}
+design <- nc_design(exp)
+cat('<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">')
+for (cond in names(exp$variants)) {
+  row <- design[design$condition_id == cond, ]
+  cat('<figure style="margin:0;border:1px solid #d9e0ee;border-radius:8px;padding:8px">',
+      svg_with_aois(exp$variants[[cond]]),
+      sprintf('<figcaption style="font-size:.85em"><code>%s</code><br>price: %s &middot; CTA contrast: %s</figcaption></figure>',
+              cond, row$price_pos, row$cta_contrast), sep = "")
+}
+cat('</div>')
+```
+
+## 4. AOI table for eye-tracking software
+
+```{r aois}
+aois <- nc_aoi_from_components(exp$variants[[1]])
+nc_aoi_to_df(aois, canvas_width = 1200, canvas_height = 900)
+```
+
+## 5. Invariant check
+
+`nc_validate()` compares every condition with the reference and fails if anything other than the declared parameters differs.
+
+```{r validate}
+nc_validate(exp)
+```
+
+## 6. Export
+
+```{r export, eval = FALSE}
+for (cond in names(exp$variants)) {
+  nc_export(exp$variants[[cond]], paste0(cond, ".svg"))
+  nc_export(exp$variants[[cond]], paste0(cond, ".png"))  # uses rsvg when installed
+}
+```

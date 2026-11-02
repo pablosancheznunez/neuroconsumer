@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 278" width="240" height="278" role="img" aria-label="neuroconsumer logo">
+  <polygon points="120,4 236,71 236,207 120,274 4,207 4,71" fill="#24407a" stroke="#182c56" stroke-width="6"/>
+  <rect x="62" y="62" width="116" height="124" rx="8" fill="#ffffff" opacity=".96"/>
+  <rect x="96" y="74" width="48" height="8" rx="3" fill="#24407a"/>
+  <rect x="88" y="92" width="64" height="44" rx="4" fill="#c8d3ea"/>
+  <rect x="98" y="164" width="44" height="12" rx="3" fill="#e4572e"/>
+  <rect x="81" y="86" width="78" height="56" rx="3" fill="none" stroke="#e4572e" stroke-width="3" stroke-dasharray="7 5"/>
+  <circle cx="132" cy="110" r="7" fill="#e4572e" opacity=".85"/>
+  <circle cx="132" cy="110" r="14" fill="none" stroke="#e4572e" stroke-width="2" opacity=".45"/>
+  <rect x="104" y="146" width="32" height="7" rx="2" fill="#7f8fb3"/>
+  <text x="120" y="226" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#ffffff">neuroconsumer</text>
+</svg>
